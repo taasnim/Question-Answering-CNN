@@ -71,7 +71,7 @@ class Unidirectional_Attention_Model(nn.Module):
         
         ques_fwd_h = ques_hidden[0:ques_hidden.size(0):2]
         ques_bwd_h = ques_hidden[1:ques_hidden.size(0):2]
-        ques_hidden = torch.cat([ques_fwd_h, ques_fwd_h], dim=2)   
+        ques_hidden = torch.cat([ques_fwd_h, ques_bwd_h], dim=2)   
         #print("After hid: ", ques_hidden.size())
         
         q_ws = self.ws(ques_hidden) #q_ws shape:  torch.Size([1, bs, 256])
